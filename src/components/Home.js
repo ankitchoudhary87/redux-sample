@@ -1,14 +1,12 @@
 import React from "react";
-const Home = () => {
+const Home = (props) => {
+    console.log("clicked props", props);
     return (
         <div>
-            <div className="add-to-cart">
-                <img src="https://static.vecteezy.com/system/resources/thumbnails/000/496/007/small/Ecommerce_998.jpg" />
-            </div>
             <h1>Home Component</h1>
             <div className="cart-wrapper">
                 <div className="img-wrapper item">
-                    <img src="https://www.freeiconspng.com/thumbs/iphone-x-pictures/apple-iphone-x-pictures-5.png" />
+                    <img alt="iphone" src="https://www.freeiconspng.com/thumbs/iphone-x-pictures/apple-iphone-x-pictures-5.png" />
                 </div>
                 <div className="text-wrapper item">
                     <span>
@@ -19,7 +17,9 @@ const Home = () => {
                     </span>
                 </div>
                 <div className="btn-wrapper item">
-                    <button>Add to Cart</button>
+                    <button onClick={()=>props.addToCartHandler({price:1000,name:'Iphone 11'})}>Add to Cart</button>
+
+                    <button className="remove-cart-btn" onClick={()=>props.removeToCartHandler()}>Remove from Cart</button>
                 </div>
             </div>
         </div>
